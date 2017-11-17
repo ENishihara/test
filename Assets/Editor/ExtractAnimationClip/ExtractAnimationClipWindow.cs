@@ -94,20 +94,29 @@ namespace ExtractAnimationClipTool
         [MenuItem("Tools/ExtractAnimationClip")]
         static void Start()
         {
-            CurrentFolderPath = GetSelectFile();
-            if (!Directory.Exists(CurrentFolderPath))
-            {
-                Debug.LogWarning("抽出元フォルダを選択している状態で実行してください");
-                return;
-            }
-            ExtractFolderPath = SelectFolder();
-            if (string.IsNullOrEmpty(ExtractFolderPath))
-            {
-                // 空文字はキャンセルとみなす
-                return;
-            }
-            // 相対パスに変換
-            ExtractFolderPath = "Assets" + ExtractFolderPath.Substring(Application.dataPath.Length);
+//            CurrentFolderPath = GetSelectFile();
+//            if (!Directory.Exists(CurrentFolderPath))
+//            {
+//                Debug.LogWarning("抽出元フォルダを選択している状態で実行してください");
+//                return;
+//            }
+//            ExtractFolderPath = SelectFolder();
+//            if (string.IsNullOrEmpty(ExtractFolderPath))
+//            {
+//                // 空文字はキャンセルとみなす
+//                return;
+//            }
+//            // 相対パスに変換
+//            ExtractFolderPath = "Assets" + ExtractFolderPath.Substring(Application.dataPath.Length);
+
+            // シンボリックリンクからパスを取得するとAssets以下にならなくなるので
+            // AssetDatabaseが使えなくなってしまうので固定にする
+
+            // 固定のディレクトリから抽出
+            CurrentFolderPath = ExtractAnimationClipConst.ExtractionDataFromFbxPath;
+
+            // 固定のディレクトリに保存
+            ExtractFolderPath = ExtractAnimationClipConst.ExtractionDataSavePath;
             Open();
         }
 
@@ -448,7 +457,7 @@ namespace ExtractAnimationClipTool
         /// </summary>
         public static string SelectFolder()
         {
-            string path = EditorUtility.OpenFolderPanel("フォルダ選択", "Assets/Over/Sandbox/hiroi/ExtractClip/", "");
+            string path = EditorUtility.OpenFolderPanel("フォルダ選択", "Assets/", "");
             if (path.Length != 0)
             {
                 Debug.Log(path);

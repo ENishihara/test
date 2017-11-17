@@ -93,20 +93,29 @@ namespace FbxToPrefabTool
         [MenuItem("Tools/FbxToPrefab")]
         private static void FbxToPrefab()
         {
-            FbxFolderPath = GetSelectFile();
-            if (!Directory.Exists(FbxFolderPath))
-            {
-                Debug.LogWarning("抽出元フォルダを選択している状態で実行してください");
-                return;
-            }
-            PrefabFolderPath = SelectFolder();
-            if (string.IsNullOrEmpty(PrefabFolderPath))
-            {
-                // 空文字はキャンセルとみなす
-                return;
-            }
-            // 相対パスに変換
-            PrefabFolderPath = "Assets" + PrefabFolderPath.Substring(Application.dataPath.Length);
+//            FbxFolderPath = GetSelectFile();
+//            if (!Directory.Exists(FbxFolderPath))
+//            {
+//                Debug.LogWarning("抽出元フォルダを選択している状態で実行してください");
+//                return;
+//            }
+//            PrefabFolderPath = SelectFolder();
+//            if (string.IsNullOrEmpty(PrefabFolderPath))
+//            {
+//                // 空文字はキャンセルとみなす
+//                return;
+//            }
+//            // 相対パスに変換
+//            PrefabFolderPath = "Assets" + PrefabFolderPath.Substring(Application.dataPath.Length);
+
+            // シンボリックリンクからパスを取得するとAssets以下にならなくなるので
+            // AssetDatabaseが使えなくなってしまうので固定にする
+
+            // 固定のディレクトリから抽出
+            FbxFolderPath = FbxToPrefabToolConst.ExtractionDataFromFbxPath;
+
+            // 固定のディレクトリに保存
+            PrefabFolderPath = FbxToPrefabToolConst.ExtractionDataSavePath;
 
             _page = PageType.FolderConfirm;
             OpenWindow();

@@ -50,8 +50,13 @@ namespace ExtractAnimationClipTool
         public const string SettingsSearchFilter = "t:ExtractAnimationClipSettings";
 
         /// <summary>
-        /// 保存先選択でのデフォルト
+        /// FBXからデータを抽出するパス
         /// </summary>
-        public const string DefaultExtractFolderSelect = "Assets/Over/Sandbox/hiroi/ExtractClip/";
+        public const string ExtractionDataFromFbxPath = "Assets/Resources/SvnRoot/10_Design";
+
+        /// <summary>
+        /// 抽出したデータを保存するパス
+        /// </summary>
+        public const string ExtractionDataSavePath = "Assets/Resources/SvnRoot/01_AppOut";
     }
 }

@@ -8,7 +8,7 @@ public class KeyFrameData
     /// <summary>
     /// セーブデータへのパス
     /// </summary>
-    public static readonly string SaveFilePath = "Assets/KeyFrameTool/SaveData/";
+    public static readonly string SaveFilePath = "Assets/Over/KeyFrameTool/SaveData/";
 
     /// <summary>
     /// セーブデータの拡張子
