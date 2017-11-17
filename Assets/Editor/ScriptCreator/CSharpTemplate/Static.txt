@@ -1,0 +1,16 @@
+/// 
+///  @brief #SUMMARY#
+/// 
+
+using UnityEngine;
+using System.Collections;
+
+namespace Over
+{
+    /// <summary>
+    /// #SUMMARY#
+    /// </summary>
+    public static class #SCRIPTNAME#
+    {
+    }
+}

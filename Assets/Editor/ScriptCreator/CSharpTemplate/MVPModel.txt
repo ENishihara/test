@@ -1,0 +1,23 @@
+/// 
+///  @brief #SUMMARY#
+/// 
+
+using UnityEngine;
+using System.Collections;
+
+namespace Over
+{
+    /// <summary>
+    /// #SUMMARY#
+    /// </summary>
+    public class #SCRIPTNAME#
+    {
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public #SCRIPTNAME#()
+        {
+
+        }
+    }
+}
