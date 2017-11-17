@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PolicySet name="tokachi2015-07-28.mdpolicy">
+  <TextStylePolicy inheritsSet="VisualStudio" inheritsScope="text/plain" scope="text/x-csharp">
+    <FileWidth>120</FileWidth>
+    <EolMarker>Unix</EolMarker>
+  </TextStylePolicy>
+  <CSharpFormattingPolicy inheritsSet="Mono" inheritsScope="text/x-csharp" scope="text/x-csharp">
+    <IndentSwitchBody>True</IndentSwitchBody>
+    <IndentPreprocessorDirectives>False</IndentPreprocessorDirectives>
+    <AnonymousMethodBraceStyle>NextLine</AnonymousMethodBraceStyle>
+    <PropertyBraceStyle>NextLine</PropertyBraceStyle>
+    <PropertyGetBraceStyle>NextLine</PropertyGetBraceStyle>
+    <PropertySetBraceStyle>NextLine</PropertySetBraceStyle>
+    <EventBraceStyle>NextLine</EventBraceStyle>
+    <EventAddBraceStyle>NextLine</EventAddBraceStyle>
+    <EventRemoveBraceStyle>NextLine</EventRemoveBraceStyle>
+    <AllowEventAddBlockInline>False</AllowEventAddBlockInline>
+    <AllowEventRemoveBlockInline>False</AllowEventRemoveBlockInline>
+    <StatementBraceStyle>NextLine</StatementBraceStyle>
+    <ElseNewLinePlacement>NewLine</ElseNewLinePlacement>
+    <CatchNewLinePlacement>NewLine</CatchNewLinePlacement>
+    <FinallyNewLinePlacement>NewLine</FinallyNewLinePlacement>
+    <WhileNewLinePlacement>NewLine</WhileNewLinePlacement>
+    <ArrayInitializerWrapping>DoNotChange</ArrayInitializerWrapping>
+    <BeforeMethodDeclarationParentheses>False</BeforeMethodDeclarationParentheses>
+    <BeforeMethodCallParentheses>False</BeforeMethodCallParentheses>
+    <BeforeConstructorDeclarationParentheses>False</BeforeConstructorDeclarationParentheses>
+    <NewLineBeforeConstructorInitializerColon>SameLine</NewLineBeforeConstructorInitializerColon>
+    <NewLineAfterConstructorInitializerColon>SameLine</NewLineAfterConstructorInitializerColon>
+    <BeforeIndexerDeclarationBracket>False</BeforeIndexerDeclarationBracket>
+    <BeforeDelegateDeclarationParentheses>False</BeforeDelegateDeclarationParentheses>
+    <NewParentheses>False</NewParentheses>
+    <SpaceAroundUnsafeArrowOperator>True</SpaceAroundUnsafeArrowOperator>
+    <SpacesBeforeBrackets>False</SpacesBeforeBrackets>
+    <BlankLinesInsideRegion>0</BlankLinesInsideRegion>
+    <MethodDeclarationParameterWrapping>WrapIfTooLong</MethodDeclarationParameterWrapping>
+    <IndexerDeclarationClosingBracketOnNewLine>NewLine</IndexerDeclarationClosingBracketOnNewLine>
+    <AlignToFirstIndexerDeclarationParameter>False</AlignToFirstIndexerDeclarationParameter>
+    <NewLineAferIndexerOpenBracket>NewLine</NewLineAferIndexerOpenBracket>
+    <IndexerClosingBracketOnNewLine>NewLine</IndexerClosingBracketOnNewLine>
+  </CSharpFormattingPolicy>
+  <TextStylePolicy inheritsSet="VisualStudio" inheritsScope="text/plain" scope="text/plain">
+    <FileWidth>120</FileWidth>
+    <TabsToSpaces>False</TabsToSpaces>
+    <EolMarker>Unix</EolMarker>
+  </TextStylePolicy>
+  <DotNetNamingPolicy>
+    <DirectoryNamespaceAssociation>None</DirectoryNamespaceAssociation>
+    <ResourceNamePolicy>FileFormatDefault</ResourceNamePolicy>
+  </DotNetNamingPolicy>
+</PolicySet>

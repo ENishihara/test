@@ -1,0 +1,60 @@
+/// 
+///  @brief #SUMMARY#
+/// 
+
+using UnityEngine;
+using System.Collections;
+
+namespace Over
+{
+    /// <summary>
+    /// #SUMMARY#
+    /// </summary>
+    public class #SCRIPTNAME# : OverScreenPresenter
+    {
+        /// <summary>
+        /// ビュー
+        /// </summary>
+        public #INPUTSCRIPTNAME#View View
+        {
+            get{ return (#INPUTSCRIPTNAME#View)_view; }
+        }
+
+        /// <summary>
+        /// モデル
+        /// </summary>
+        public #INPUTSCRIPTNAME#Model Model { get; set; }
+
+        /// <summary>
+        /// スクリーンのEnum
+        /// </summary>
+        public override ScreenEnum.ScreenName ScreenName { get { return ScreenEnum.ScreenName.#SCREENNAME#; } }
+
+        /// <summary>
+        /// 初期化
+        /// </summary>
+        public override IEnumerator OnInitialize()
+        {
+            yield return StartCoroutine(base.OnInitialize());
+            Model = new #INPUTSCRIPTNAME#Model();
+            Bind();
+            SetEvent();
+        }
+
+        /// <summary>
+        /// ViewとModelの紐付け
+        /// </summary>
+        private void Bind()
+        {
+
+        }
+
+        /// <summary>
+        /// イベントを設定
+        /// </summary>
+        private void SetEvent()
+        {
+
+        }
+    }
+}

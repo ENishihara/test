@@ -1,0 +1,52 @@
+/// 
+///  @brief #SUMMARY#
+/// 
+
+using UnityEngine;
+using System.Collections;
+
+namespace Over
+{
+    /// <summary>
+    /// #SUMMARY#
+    /// </summary>
+    public class #SCRIPTNAME# : MonoBase
+    {
+        /// <summary>
+        /// ビュー
+        /// </summary>
+        [SerializeField]
+        private #INPUTSCRIPTNAME#View _view;
+
+        /// <summary>
+        /// モデル
+        /// </summary>
+        public #INPUTSCRIPTNAME#Model Model { get; set; }
+
+        /// <summary>
+        /// 初期化
+        /// </summary>
+        public void Initialize()
+        {
+            Model = new #INPUTSCRIPTNAME#Model();
+            Bind();
+            SetEvent();
+        }
+
+        /// <summary>
+        /// ViewとModelの紐付け
+        /// </summary>
+        private void Bind()
+        {
+
+        }
+
+        /// <summary>
+        /// イベントを設定
+        /// </summary>
+        private void SetEvent()
+        {
+
+        }
+    }
+}

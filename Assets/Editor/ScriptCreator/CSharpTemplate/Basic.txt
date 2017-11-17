@@ -1,0 +1,41 @@
+/// 
+///  @brief #SUMMARY#
+/// 
+
+using UnityEngine;
+using System.Collections;
+
+namespace Over
+{
+    /// <summary>
+    /// #SUMMARY#
+    /// </summary>
+    public class #SCRIPTNAME# : MonoBase
+    {
+        /// <summary>
+        /// Start関数(１度しか呼ばれない)
+        /// </summary>
+        protected override void OnStart()
+        {
+            base.OnStart();
+        }
+
+#if UNITY_EDITOR
+        /// <summary>
+        /// Raises the valid check event.
+        /// </summary>
+        protected override void OnValidCheck()
+        {
+            base.OnValidCheck();
+        }
+#endif
+
+        /// <summary>
+        /// Update関数 (Update is called once per frame)
+        /// </summary>
+        void Update()
+        {
+
+        }
+    }
+}
