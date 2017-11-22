@@ -52,11 +52,11 @@ namespace ExtractAnimationClipTool
         /// <summary>
         /// FBXからデータを抽出するパス
         /// </summary>
-        public const string ExtractionDataFromFbxPath = "Assets/Resources/SvnRoot/10_Design";
+        public const string ExtractionDataFromFbxPath = "Assets/Resources/SvnRoot/3d/character/fbx";
 
         /// <summary>
         /// 抽出したデータを保存するパス
         /// </summary>
-        public const string ExtractionDataSavePath = "Assets/Resources/SvnRoot/01_AppOut";
+        public const string ExtractionDataSavePath = "Assets/Resources/SvnRoot/3d/character/motion_clip";
     }
 }
