@@ -214,7 +214,7 @@ namespace FbxToPrefabTool
         /// </summary>
         private static void SelectingConfirmPage()
         {
-            EditorGUILayout.LabelField("対象FBX確認");
+            EditorGUILayout.HelpBox("対象FBX確認", MessageType.Info);
 
             EditorGUILayout.BeginVertical(GUI.skin.box);
             _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos, GUI.skin.scrollView);
@@ -223,7 +223,7 @@ namespace FbxToPrefabTool
                 if (searchData.IsTarget)
                 {
                     EditorGUILayout.BeginHorizontal();
-                    EditorGUILayout.LabelField(searchData.Path);
+                    GUILayout.Label(searchData.Path);
                     if (searchData.IsNew)
                     {
                         GUILayout.FlexibleSpace();
@@ -259,6 +259,17 @@ namespace FbxToPrefabTool
         {
             EditorGUILayout.LabelField("FBXプレハブ化");
             EditorGUILayout.HelpBox("完了しました", MessageType.Info);
+            GUILayout.FlexibleSpace();
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            if (GUILayout.Button("閉じる", GUILayout.Width(ButtonWidth)))
+            {
+                _window.Close();
+                GUIUtility.ExitGUI();
+                return;
+            }
+            GUILayout.FlexibleSpace();
+            EditorGUILayout.EndHorizontal();
         }
 
         /// <summary>

@@ -44,14 +44,6 @@ namespace FbxToPrefabTool
     public class FbxToPrefabConverter
     {
         /// <summary>
-        /// 定数
-        /// </summary>
-        public const string FbxFilder = "t:GameObject";
-        public const string FbxExtention = ".fbx";
-        public const string PrefabExtention = ".prefab";
-        public const string DirectorySeparator = "/";
-
-        /// <summary>
         /// 指定フォルダからFBXファイルを検索する
         /// </summary>
         public static List<FbxSearchResult> GetFbxPathList(string fbxFolderPath, string prefabFolderPath)
@@ -73,18 +65,20 @@ namespace FbxToPrefabTool
             {
                 string path = AssetDatabase.GUIDToAssetPath(guid);
 
-                if (false == Path.GetExtension(path).Equals(FbxExtention))
+                if (false == Path.GetExtension(path).Equals(FbxToPrefabToolConst.FbxExtention))
                 {
                     continue;
                 }
-                string fileName = Path.GetFileNameWithoutExtension(path);
+                string fbxFileName = Path.GetFileNameWithoutExtension(path);
 
                 var result = new FbxSearchResult();
                 GameObject fbx = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+                string prefabName = fbx.name.Replace(FbxToPrefabToolConst.FbxFileHeadCommonName, FbxToPrefabToolConst.PrefabFileHeadCommonName);
+
                 result.Fbx = fbx;
                 result.Path = path;
-                result.FileName = fileName;
-                result.IsNew = false == File.Exists(prefabFolderPath + DirectorySeparator + fbx.name + FbxExtention);
+                result.FileName = fbxFileName;
+                result.IsNew = false == File.Exists(prefabFolderPath + FbxToPrefabToolConst.DirectorySeparator + prefabName + FbxToPrefabToolConst.PrefabExtension);
                 result.IsTarget = result.IsNew;
                 resultList.Add(result);
             }
@@ -102,15 +96,19 @@ namespace FbxToPrefabTool
             bool isProgressDisplayed = false;
             foreach (FbxSearchResult fbxData in searchList)
             {
-                EditorUtility.DisplayProgressBar("AnimationClip抽出中", fbxData.Path, (float)progressCounter / (float)totalCount);
+                EditorUtility.DisplayProgressBar("FBX抽出中", fbxData.Path, (float)progressCounter / (float)totalCount);
                 isProgressDisplayed = true;
 
                 if (fbxData.IsTarget)
                 {
-                    GameObject prefab = PrefabUtility.CreatePrefab(prefabFolderPath + DirectorySeparator + fbxData.FileName + PrefabExtention, fbxData.Fbx);
-
+                    string prefabName = fbxData.FileName.Replace(FbxToPrefabToolConst.FbxFileHeadCommonName, FbxToPrefabToolConst.PrefabFileHeadCommonName);
+                    string destPath = prefabFolderPath + FbxToPrefabToolConst.DirectorySeparator + prefabName + FbxToPrefabToolConst.PrefabExtension;
+                    GameObject prefab = PrefabUtility.CreatePrefab(FbxToPrefabToolConst.TmpPrefabFilePath, fbxData.Fbx);
                     CustomizePrefab(prefab);
 
+                    File.Copy(FbxToPrefabToolConst.TmpPrefabFilePath, destPath, true);
+                    File.Delete(FbxToPrefabToolConst.TmpPrefabFilePath);
+                    File.Delete(FbxToPrefabToolConst.TmpPrefabFilePath + ".meta");
                     AssetDatabase.Refresh();
                     progressCounter++;
                 }
